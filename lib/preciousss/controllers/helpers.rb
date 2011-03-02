@@ -44,7 +44,7 @@ module Preciousss
             I18n.with_options :locale => options[:locale], :scope => [:activerecord, :errors, :template] do |locale|
               messages = object_errors.sum{|errors| errors.full_messages.map{|msg| '<li>' + ERB::Util.html_escape(msg) + '</li>'}}.join.html_safe
               contents = ''
-              contents << '<div class="title">' + options[:title] + '</div>' unless options[:title].blank?
+              contents << '<p class="title">' + options[:title] + '</p>' unless options[:title].blank?
               contents << '<ul class="messages">' + messages + '</ul>'
 
               "<div id=\"#{options[:id]}\" class=\"#{options[:class]}\">#{contents}</div>".html_safe
