@@ -1,12 +1,13 @@
 module Preciousss
   module Controllers
     module Helpers
+      BOTS_REGEXP = /Googlebot|facebookexternalhit/i.freeze
 
       def self.included(base) # :nodoc:
         base.extend ClassMethods
         base.send :include, InstanceMethods
         base.class_eval do
-          helper_method :errors_for
+          helper_method :errors_for, :is_bot?
         end
       end
 
@@ -15,6 +16,10 @@ module Preciousss
 
       module InstanceMethods
 
+        def is_bot?
+          @is_bot ||= request.user_agent.to_s =~ BOTS_REGEXP
+        end
+        
         def errors_for(*params)
           options             = params.extract_options!.symbolize_keys
           options[:on]        = [*options[:on]].compact
