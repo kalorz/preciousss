@@ -8,3 +8,4 @@ View Helpers
     body_id
     errors_for
     flash_messages
+    is_bot?
