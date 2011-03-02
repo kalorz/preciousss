@@ -8,6 +8,12 @@ module Preciousss
 
         include Preciousss::ViewHelpers::ActionView
       end
+
+      ActiveSupport.on_load :action_controller do
+        require 'preciousss/controllers/helpers'
+
+        include Preciousss::Controllers::Helpers
+      end
     end
 
   end
