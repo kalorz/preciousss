@@ -11,6 +11,14 @@ module Preciousss
         "#{controller.controller_path.gsub('/', '-')}-body"
       end
 
+      def flash_messages
+        return if flash.blank?
+
+        content_tag(:div, :class => "flash-messages #{flash.keys.map{|key| "with-#{key}"}.join(' ')}") do
+          flash.map{|key, value| content_tag(:p, value, :class => "flash-#{key}")}.join.html_safe
+        end
+      end
+
     end
   end
 end

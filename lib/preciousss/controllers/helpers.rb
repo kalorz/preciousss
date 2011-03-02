@@ -34,7 +34,7 @@ module Preciousss
           unless object_errors.empty?
             options[:class] ||= 'errors'
             options[:id]    ||= objects.map{|object| object.class.name.underscore}.join('-') + '-errors'
-            options[:title]   = I18n.t('activerecord.errors.template.header', :model => objects.map{|object| object.class.human_name}.to_sentence, :count => object_errors.size) if options[:title] === true
+            options[:title]   = I18n.t('activerecord.errors.template.header', :model => objects.map{|object| object.class.human}.to_sentence, :count => object_errors.size) if options[:title] === true
 
             I18n.with_options :locale => options[:locale], :scope => [:activerecord, :errors, :template] do |locale|
               messages = object_errors.sum{|errors| errors.full_messages.map{|msg| '<li>' + ERB::Util.html_escape(msg) + '</li>'}}.join.html_safe
