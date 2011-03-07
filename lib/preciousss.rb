@@ -14,6 +14,8 @@ module Preciousss
 
         include Preciousss::Controllers::Helpers
       end
+
+      require 'preciousss/validators/email_format_validator'
     end
 
   end
