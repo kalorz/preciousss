@@ -9,3 +9,8 @@ View Helpers
     errors_for
     flash_messages
     is_bot?
+
+Validators
+----------
+
+    email_format
