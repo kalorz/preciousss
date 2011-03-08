@@ -14,3 +14,4 @@ Validators
 ----------
 
     email_format
+    collection_length
