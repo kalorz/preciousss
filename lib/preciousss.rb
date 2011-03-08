@@ -16,6 +16,7 @@ module Preciousss
       end
 
       require 'preciousss/validators/email_format_validator'
+      require 'preciousss/validators/collection_length_validator'
     end
 
   end
