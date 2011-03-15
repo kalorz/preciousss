@@ -1,7 +1,7 @@
 module Preciousss
   module Controllers
     module Helpers
-      BOTS_REGEXP = /Googlebot|facebookexternalhit/i.freeze
+      BOTS_REGEXP = /\b(Googlebot|facebookexternalhit|Baidu|Gigabot|libwww-perl|lwp-trivial|msnbot|SiteUptime|Slurp|WordPress|ZIBB|ZyBorg)\b/i
 
       def self.included(base) # :nodoc:
         base.extend ClassMethods
