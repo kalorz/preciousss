@@ -7,7 +7,7 @@ module Preciousss
         base.extend ClassMethods
         base.send :include, InstanceMethods
         base.class_eval do
-          helper_method :errors_for, :is_bot?
+          helper_method :errors_for, :is_bot?, :bot_id
         end
       end
 
@@ -17,7 +17,11 @@ module Preciousss
       module InstanceMethods
 
         def is_bot?
-          @is_bot ||= request.user_agent.to_s =~ BOTS_REGEXP
+          @is_bot ||= !bot_id.blank?
+        end
+
+        def bot_id
+          @bot_id ||= (request.user_agent.to_s =~ BOTS_REGEXP) && $1
         end
         
         def errors_for(*params)
