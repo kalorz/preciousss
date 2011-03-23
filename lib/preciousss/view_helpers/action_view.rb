@@ -19,6 +19,10 @@ module Preciousss
         end
       end
 
+      def years_range(since = Date.today.year, till = Date.today.year)
+        @copyright_year ||= [since, till].uniq.sort.join('-')
+      end
+
     end
   end
 end
