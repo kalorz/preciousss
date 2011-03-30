@@ -58,6 +58,28 @@ module Preciousss
           end
         end
 
+        private ########################################################################################################
+
+        # Get locale from top-level domain or return nil if such locale is not available
+        # You have to put something like:
+        #   127.0.0.1 application.com
+        #   127.0.0.1 application.it
+        #   127.0.0.1 application.pl
+        # in your /etc/hosts file to try this out locally
+        def extract_locale_from_tld
+          locale = request.host.split('.').last
+          !locale.blank? && I18n.available_locales.include?(locale.to_sym) ? locale  : nil
+        end
+
+        # Get locale code from request subdomain (like http://it.application.local:3000)
+        # You have to put something like:
+        #   127.0.0.1 gr.application.local
+        # in your /etc/hosts file to try this out locally
+        def extract_locale_from_subdomain
+          locale = request.subdomains.first
+          !locale.blank? && I18n.available_locales.include?(locale.to_sym) ? locale  : nil
+        end
+
       end
 
     end
