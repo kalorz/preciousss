@@ -9,6 +9,8 @@ View Helpers
     errors_for
     flash_messages
     is_bot?
+    bot_id
+    years_range
 
 Validators
 ----------
