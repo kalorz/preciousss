@@ -8,7 +8,7 @@ module Preciousss
       end
 
       def body_id
-        "#{controller.controller_path.gsub('/', '-')}-body"
+        "#{controller.controller_path.gsub('/', '_')}-body"
       end
 
       def flash_messages
