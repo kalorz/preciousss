@@ -42,7 +42,7 @@ module Preciousss
 
           unless object_errors.empty?
             options[:class] ||= 'errors'
-            options[:id]    ||= objects.map{|object| object.class.name.underscore}.join('-') + '_errors'
+            options[:id]    ||= objects.map{|object| object.class.name.underscore}.join('_') + '_errors'
             options[:title]   = I18n.t('activerecord.errors.template.header', :model => objects.map{|object| object.class.human}.to_sentence, :count => object_errors.size) if options[:title] === true
 
             I18n.with_options :locale => options[:locale], :scope => [:activerecord, :errors, :template] do |locale|
@@ -58,7 +58,7 @@ module Preciousss
           end
         end
 
-        private ########################################################################################################
+        protected ######################################################################################################
 
         # Get locale from top-level domain or return nil if such locale is not available
         # You have to put something like:
