@@ -11,6 +11,8 @@ View Helpers
     is_bot?
     bot_id
     years_range
+    extract_locale_from_subdomain
+    extract_locale_from_tld
 
 Validators
 ----------
