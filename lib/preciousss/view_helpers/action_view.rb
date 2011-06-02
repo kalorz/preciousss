@@ -15,7 +15,7 @@ module Preciousss
         return if flash.blank?
 
         content_tag(:div, :class => "flash_messages #{flash.keys.map{|key| "with_#{key}"}.join(' ')}") do
-          flash.map{|key, value| content_tag(:p, content_tag(:span, value), :class => "flash_#{key}")}.join.html_safe
+          flash.map{|key, value| content_tag(:p, content_tag(:span, value), :class => "flash_messages flash_#{key}")}.join.html_safe
         end
       end
 
