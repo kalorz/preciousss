@@ -1,3 +1,5 @@
+![Gitrank](http://infopoprac.r12.railsrumble.com/karolsarnacki.png)
+
 Preciousss
 ==========
 
